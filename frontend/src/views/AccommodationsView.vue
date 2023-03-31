@@ -9,72 +9,43 @@
         próximos a sala de jogos, ao restaurante, às piscinas e possuem uma
         vista magnífica para as piscinas!
       </p>
-      <p>
-        Seja qual for o seu objetivo: comemorações em família, apenas um momento
-        para descansar, até mesmo uma confraternização com a empresa ou encontro
-        de amigos, o Hotel Helius tem a acomodação certa para você. Aproveite a
-        oportunidade e faça agora mesmo sua reserva.
-      </p>
     </TitleInitialDescription>
-
-    <SearchMenu
-      :acomodNames="accommodations"
-      @scrollSimple="scrollPage(1)"
-      @scrollPremium="scrollPage(2)"
-      @scrollBangalo="scrollPage(3)"
-    />
-
-    <div class="accommodations-bedrooms">
-      <AccommodationsModal
-        roomName="Quarto Simples"
-        desc1="01 Suíte"
-        desc2="01 Sala de estar"
-        desc3="01 Sala de estar"
-        desc4="01 Sala de estar"
-        :image="require('../assets/images/quarto_simples.jpg')"
-        @reservationPage="skipPage()"
-      />
-      <AccommodationsModal
-        roomName="Quarto Premium"
-        desc1="02 Suíte"
-        desc2="02 Sala de estar"
-        desc3="02 Sala de estar"
-        desc4="02 Sala de estar"
-        :image="require('../assets/images/quarto_premium.jpg')"
-        @reservationPage="skipPage()"
-      />
-      <AccommodationsModal
-        roomName="Quarto Bangalô"
-        desc1="03 Suíte"
-        desc2="03 Sala de estar"
-        desc3="03 Sala de estar"
-        desc4="03 Sala de estar"
-        :image="require('../assets/images/bangalo04.jpg')"
-        @reservationPage="skipPage()"
-      />
-    </div>
+    <CarouselOne :images="images"/>
+    <p>
+      Seja qual for o seu objetivo: comemorações em família, apenas um momento
+      para descansar, até mesmo uma confraternização com a empresa ou encontro
+      de amigos, o Hotel Helius tem a acomodação certa para você. Aproveite a
+      oportunidade e faça agora mesmo sua reserva.
+    </p>
   </section>
 </template>
 
 <script>
 import TitleInitialDescription from "../components/TitleInitialDescription.vue";
-import SearchMenu from "../components/SearchMenu.vue";
-import AccommodationsModal from "../components/accommodations/AccommodationsModal.vue";
+import CarouselOne from "../components/carousel/CarouselOne.vue";
 
 export default {
   name: "AccommodationsView",
-  components: { TitleInitialDescription, SearchMenu, AccommodationsModal },
+  components: {
+    TitleInitialDescription,
+    CarouselOne,
+  },
   data() {
     return {
+      images: [
+        { src: require("../assets/images/quarto_simples.jpg") },
+        { src: require("../assets/images/quarto_premium.jpg") },
+        { src: require("../assets/images/bangalo04.jpg") },
+      ],
       accommodations: ["Simples", "Premium", "Bangalô"],
     };
   },
   methods: {
     skipPage() {
-      if(this.$store.state.login == false) {
-        alert('Você precisa estar logado para fazer uma reserva.');
+      if (this.$store.state.login == false) {
+        alert("Você precisa estar logado para fazer uma reserva.");
       } else {
-        this.$router.push('/reservas');
+        this.$router.push("/reservas");
       }
     },
     scrollPage(type) {
@@ -98,7 +69,6 @@ export default {
       }
     },
   },
-  mounted() {},
 };
 </script>
 
