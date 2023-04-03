@@ -84,7 +84,7 @@
 @media screen and (max-width: 768px) {
   .topBar {
     position: fixed;
-    z-index: 1;
+    z-index: 11;
     width: 100vw;
   }
 
@@ -226,7 +226,7 @@ header {
   height: 100vh;
   background-color: v.$mainColorBlack;
   position: absolute;
-  z-index: 2;
+  z-index: 12;
   top: 0;
   left: 0;
   display: none;

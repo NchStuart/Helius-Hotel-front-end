@@ -13,6 +13,7 @@
     />
     <agile
       ref="carousel"
+      :mobileFirst="true"
       :infinite="true"
       :dots="false"
       :autoplay="true"
@@ -22,6 +23,7 @@
     >
       <div class="slide" v-for="(image, i) in images" :key="i">
         <img :src="image.src" />
+        <button class="feedback" @click="openModalFeedBack(i)">Avaliações do quarto</button>
       </div>
     </agile>
     <button class="btn back" @click="$refs.carousel.goToPrev()">
@@ -51,6 +53,9 @@ export default {
     };
   },
   methods: {
+    openModalFeedBack(index){
+      console.log(index)
+    },
     // reservationSkipPage() {
     //   if (this.$store.state.login == true) {
     //     this.$emit("reservationPage");
@@ -119,6 +124,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100%;
   position: relative;
   margin-top: 20px;
@@ -131,7 +137,7 @@ export default {
 
 .slide {
   display: block;
-  height: 500px;
+  height: 100%;
   object-fit: cover;
   width: 100%;
 }
@@ -140,7 +146,7 @@ export default {
   justify-content: space-between;
   width: 100%;
   position: absolute;
-  z-index: 999;
+  z-index: 10;
   padding: 30px;
 }
 
@@ -171,6 +177,12 @@ export default {
   left: 30px;
 }
 
+.feedback{
+  position: absolute;
+  bottom: 140px;
+  z-index: 12;
+}
+
 .skip {
   position: absolute;
   right: 30px;
@@ -178,5 +190,19 @@ export default {
 
 img {
   width: 100%;
+  height: 80%;
+}
+
+@media (max-width: 830px) { 
+  .container {
+    flex-direction: column-reverse;
+    margin-top: 0px;
+  }
+}
+
+@media (max-width:980px) {
+  .btn {
+ display: none;
+  }
 }
 </style>

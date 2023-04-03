@@ -73,7 +73,7 @@ s{
   border-radius: 5px;
   position: absolute;
   padding: 20px;
-  z-index: 999;
+  z-index: 10;
 
   & h4 {
     color: #fff;
@@ -143,46 +143,28 @@ s{
 //   }
 // }
 
-// @media (max-width: 890px) {
-//   .accommodations-bedrooms--item---info {
-//     position: relative;
-//     justify-content: center;
-//     align-items: center;
-//     height: 70%;
-//     width: 200px;
-//     top: -50px;
-//     left: 0;
+@media (max-width: 1024px) {
+  .accommodations-bedrooms--item---info {
+    font-size: 15px;
+    padding: 10px;
+    line-height: 10px;
+  }
+}
 
-//     & h4 {
-//       color: #fff;
-//       padding-top: 0px;
-//       padding-bottom: 20px;
-//       margin: 0;
-//       font-size: 15px;
-//     }
+@media (max-width: 830px) {
+  .accommodations-bedrooms--item---info {
+    font-size: 12px;
+    position: inherit;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 20px;
+    white-space: nowrap;
+  }
 
-//     & p {
-//       margin: 0;
-//       font-size: 14px;
-//       padding-bottom: 15px;
-//       color: #fff;
-//     }
-
-//     & button {
-//       color: #fff;
-//       outline: none;
-//       border: none;
-//       height: 40px;
-//       width: 60%;
-//       border-radius: 30px;
-//       background: #ffbf00;
-//       cursor: pointer;
-
-//       &:hover {
-//         background-color: #ffd000;
-//         transition: all ease 0.2s;
-//       }
-//     }
-//   }
-// }
+  .accommodations-bedrooms--item---info button{
+      font-size: 12px;
+      padding: 8px;
+  }
+}
 </style>
